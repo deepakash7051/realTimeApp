@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Question;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class QuestionController extends Controller
 {
@@ -60,6 +61,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return response(null,Response::HTTP_NO_CONTENT);
     }
 }
